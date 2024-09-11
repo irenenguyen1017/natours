@@ -1,0 +1,42 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 1;
+    transition: all .2s;
+    // create a space between the element and the outline is applied for that element.
+    outline-offset: 2rem;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+    
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      // similar to setting a border but it works with outline-offset to make the side effect
+      outline: 1.5rem solid $color-primary;
+      transform: scale(1.1) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+      z-index: 2;
+    }
+  }
+
+  // choose all the photo in .compostition except photo that is being hovered above
+  &:hover &__photo:not(:hover) {
+    transform: scale(.85);
+  }
+}
